@@ -1,1 +1,85 @@
-[]
+[
+  {
+    "id": "q001",
+    "query": "python TypeError debugging",
+    "expected_titles": ["Python debugging session"],
+    "expected_content_contains": ["TypeError", "guard clause", "empty list"],
+    "category": "factual",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q002",
+    "query": "battery voltage temperature confidence scoring",
+    "expected_titles": ["Battery monitoring system design"],
+    "expected_content_contains": ["voltage", "confidence", "3.0V", "temperature"],
+    "category": "factual",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q003",
+    "query": "ChromaDB sentence-transformers architecture recommendation",
+    "expected_titles": ["Project architecture discussion"],
+    "expected_content_contains": ["ChromaDB", "all-MiniLM-L6-v2", "pipeline"],
+    "category": "factual",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q004",
+    "query": "missing sensor data handling graceful degradation",
+    "expected_titles": ["Battery monitoring system design"],
+    "expected_content_contains": ["missing", "confidence", "multiplier", "missing_streak"],
+    "category": "semantic",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q005",
+    "query": "MCP stdio transport weekly progress",
+    "query_variants": ["MCP stdio transport", "weekly progress parser chunking"],
+    "expected_titles": ["Weekly reflection July 2025"],
+    "expected_content_contains": ["stdio", "MCP", "parser", "chunking"],
+    "category": "semantic",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q006",
+    "query": "traditional Italian pasta recipe",
+    "expected_titles": ["Recipe for pasta carbonara"],
+    "expected_content_contains": ["guanciale", "Pecorino", "egg yolks"],
+    "category": "semantic",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q007",
+    "query": "type hints numpy arrays Sequence",
+    "expected_titles": ["Python debugging session"],
+    "expected_content_contains": ["Sequence", "numpy", "type hints"],
+    "category": "factual",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q008",
+    "query": "LangChain vs direct ChromaDB calls",
+    "expected_titles": ["Project architecture discussion"],
+    "expected_content_contains": ["LangChain", "direct", "lean"],
+    "category": "factual",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q009",
+    "query": "architecture knowledge system",
+    "date_from": "2024-07-08",
+    "date_to": "2024-07-09",
+    "expected_titles": ["Project architecture discussion"],
+    "expected_content_contains": ["ChromaDB", "pipeline"],
+    "category": "temporal",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q010",
+    "query": "quantum computing blockchain",
+    "expected_titles": [],
+    "expected_content_contains": [],
+    "category": "negative",
+    "difficulty": "easy"
+  }
+]
