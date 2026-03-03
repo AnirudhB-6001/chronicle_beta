@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in Chronicle Beta, please report it responsibly.
 
-**Email:** anirudh.batra6001@gmail.com
+**Email:** anirudhbatra.official@gmail.com
 
 **Please include:**
 - Description of the vulnerability
