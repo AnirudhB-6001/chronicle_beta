@@ -116,18 +116,25 @@ chronicle_beta/
 ├── data/                      # User data directory (gitignored)
 ├── docs/                      # Documentation
 ├── pyproject.toml
-├── LICENSE                    # MIT
+├── LICENSE                    # Apache 2.0
+├── SECURITY.md                # Vulnerability reporting
 └── README.md
 ```
 
 ## Privacy
 
-Chronicle Beta is local-first by design. Your data never leaves your machine.
-- No cloud dependencies
-- No telemetry
-- No API keys required (embeddings run locally)
-- All data stored in `data/` which is gitignored
+Chronicle Beta is local-first by design. Your conversation data never leaves your machine.
+
+- **No cloud dependencies.** Embeddings are computed locally using sentence-transformers. No OpenAI API, no external embedding services.
+- **No telemetry.** Chronicle Beta does not phone home, collect analytics, or transmit any data.
+- **No API keys required.** Everything runs on your hardware.
+- **All user data is gitignored.** The `data/` directory (conversations, chunks, vector store) is excluded from version control by default.
+- **MCP data flow.** When connected to an LLM client like Claude Desktop, retrieved chunks are sent to the LLM via stdio for answer synthesis. At that point, the LLM provider's data handling policies apply. Chronicle Beta itself does not control what happens after chunks leave the MCP interface.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting instructions.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Apache 2.0 — see [LICENSE](LICENSE).

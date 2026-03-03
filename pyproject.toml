@@ -7,16 +7,16 @@ name = "chronicle-beta"
 version = "0.1.0"
 description = "A local-first personal RAG memory system, designed to work with LLMs via MCP."
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 requires-python = ">=3.10"
 authors = [
-    {name = "Anirudh Batra", email = "anirudh.batra6001@gmail.com"},
+    {name = "Anirudh Batra", email = "anirudhbatra.official@gmail.com"},
 ]
 keywords = ["rag", "mcp", "memory", "retrieval", "chromadb", "personal-knowledge"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
