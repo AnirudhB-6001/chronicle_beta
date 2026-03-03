@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "chronicle-beta"
+version = "0.1.0"
+description = "A local-first personal RAG memory system, designed to work with LLMs via MCP."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Anirudh Batra", email = "anirudh.batra6001@gmail.com"},
+]
+keywords = ["rag", "mcp", "memory", "retrieval", "chromadb", "personal-knowledge"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "chromadb>=0.4.0,<1.0",
+    "sentence-transformers>=2.2.0,<4.0",
+    "diskcache>=5.6.0,<6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+eval = [
+    "pandas>=2.0",
+    "tabulate>=0.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/AnirudhB-6001/chronicle_beta"
+Repository = "https://github.com/AnirudhB-6001/chronicle_beta"
+Issues = "https://github.com/AnirudhB-6001/chronicle_beta/issues"
+
+[project.scripts]
+chronicle-ingest = "scripts.ingest:main"
+
+[tool.setuptools.packages.find]
+include = ["mcp_server*", "retriever*", "scripts*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Chronicle data (NEVER commit user data)
+data/vector_store/
+data/chunks.json
+data/chunks_enriched.json
+data/conversations.json
+data/chat.html
+data/*.json
+!data/.gitkeep
+
+# Backups
+backups/
+
+# Cache
+.cache/
+*.diskcache/
+query_cache/
+
+# Debug artifacts
+mcp_last_call.json
+chronicle_mcp_stream.txt
+*.log
+
+# Eval outputs (keep configs, not results)
+eval/results/
+eval/reports/
+
+# Environment
+.env
+.env.local

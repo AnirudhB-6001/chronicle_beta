@@ -1,0 +1,6 @@
+# Chronicle Beta — Development Dependencies
+# Install with: pip install -r requirements-dev.txt
+
+pytest>=7.0
+pytest-cov>=4.0
+ruff>=0.1.0
