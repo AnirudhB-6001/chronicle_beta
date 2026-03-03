@@ -1,0 +1,203 @@
+[
+  {
+    "id": "r001",
+    "query": "ChromaDB vector store RAG pipeline setup",
+    "query_variants": ["ChromaDB vector store setup", "RAG pipeline local embeddings"],
+    "expected_titles": ["Chronicle RAG Setup"],
+    "expected_content_contains": ["ChromaDB", "embedding", "vector"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Core Chronicle setup conversation from July 2025"
+  },
+  {
+    "id": "r002",
+    "query": "MCP server stdio JSON-RPC tool registration",
+    "query_variants": ["MCP server implementation", "stdio JSON-RPC protocol tools"],
+    "expected_titles": ["MCP server explained"],
+    "expected_content_contains": ["MCP", "server", "tool"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Major Sept 2025 conversation about MCP architecture"
+  },
+  {
+    "id": "r003",
+    "query": "fingerprinting entropy visitor tracking",
+    "query_variants": ["browser fingerprint entropy signals", "visitor tracking fingerprint identification"],
+    "expected_titles": ["Visitor Intel System Dev 2", "Visitor Intelligence Dashboard v2.0 (DaisyUI Sprint)"],
+    "expected_content_contains": ["fingerprint", "entropy"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Visitor Intelligence fingerprinting work from April 2025"
+  },
+  {
+    "id": "r004",
+    "query": "narrative drift truth stability epistemic warfare",
+    "query_variants": ["signal propagation narrative drift", "epistemic warfare information flow"],
+    "expected_titles": ["Protocol Zero and Signal Geometry"],
+    "expected_content_contains": ["drift", "narrative"],
+    "category": "semantic",
+    "difficulty": "medium",
+    "notes": "Signal Geometry core concepts from April 2025"
+  },
+  {
+    "id": "r005",
+    "query": "confidence scoring severity weighted corroboration",
+    "query_variants": ["confidence engine policy tuning", "severity weighted battery confidence"],
+    "expected_titles": ["MVP build time estimate"],
+    "expected_content_contains": ["confidence", "severity"],
+    "category": "semantic",
+    "difficulty": "medium",
+    "notes": "BIB confidence engine work from Dec 2025"
+  },
+  {
+    "id": "r006",
+    "query": "unauthenticated API endpoint GDPR privacy vulnerability",
+    "query_variants": ["website security unauthenticated endpoints", "GDPR privacy API vulnerability"],
+    "expected_titles": ["Website Security Vulnerabilities"],
+    "expected_content_contains": ["security", "API"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Security audit from Dec 2025"
+  },
+  {
+    "id": "r007",
+    "query": "resume ATS optimization bullet points",
+    "query_variants": ["ATS resume score optimization", "resume bullet points formatting"],
+    "expected_titles": ["Resume sprint plan", "ATS resume optimization score", "Resume Optimization for Account Management"],
+    "expected_content_contains": ["resume", "ATS"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Resume work spans multiple months and conversations"
+  },
+  {
+    "id": "r008",
+    "query": "React Vite Tailwind personal website first time coding",
+    "query_variants": ["first website React Vite", "personal website development beginner"],
+    "expected_titles": ["Interactive Resume Development"],
+    "expected_content_contains": ["React", "Vite"],
+    "category": "semantic",
+    "difficulty": "medium",
+    "notes": "The massive Feb 2025 website building conversation"
+  },
+  {
+    "id": "r009",
+    "query": "indoor farm hydroponics development",
+    "query_variants": ["indoor farming app development", "hydroponics growing system"],
+    "expected_titles": ["Indoor Farm Dev Thread"],
+    "expected_content_contains": ["farm", "indoor"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "March 2025 project"
+  },
+  {
+    "id": "r010",
+    "query": "MiG-29K carrier operations sortie rate",
+    "query_variants": ["MiG-29K INS Vikramaditya sorties", "carrier aircraft operations Indian Navy"],
+    "expected_titles": ["MiG-29K sorties INS Vikramaditya"],
+    "expected_content_contains": ["MiG", "sortie"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Geopolitics interest - May 2025"
+  },
+  {
+    "id": "r011",
+    "query": "career burnout direction creative block",
+    "query_variants": ["creative burnout feeling stuck", "career direction uncertainty burnout"],
+    "expected_titles": ["Creative burnout and direction", "Life recovery steps"],
+    "expected_content_contains": ["burnout"],
+    "category": "semantic",
+    "difficulty": "medium",
+    "notes": "Personal reflection conversations from mid-2025"
+  },
+  {
+    "id": "r012",
+    "query": "Chronicle accuracy six dimension calibration composite score",
+    "query_variants": ["Chronicle accuracy evaluation framework", "calibration sheet six dimensions composite"],
+    "expected_titles": ["Accuracy comparison Chronicle-Claude"],
+    "expected_content_contains": ["accuracy", "dimension"],
+    "category": "factual",
+    "difficulty": "medium",
+    "notes": "The accuracy evaluation methodology from Oct 2025"
+  },
+  {
+    "id": "r013",
+    "query": "graphene synthesis DRDO sensor",
+    "query_variants": ["graphene research nanotechnology", "DRDO graphene sensor application"],
+    "expected_titles": ["Graphene Synthesis and Application"],
+    "expected_content_contains": ["graphene"],
+    "category": "factual",
+    "difficulty": "medium",
+    "notes": "Research background - Nov 2024"
+  },
+  {
+    "id": "r014",
+    "query": "job application account manager SaaS enterprise",
+    "query_variants": ["job application breakdown SaaS", "account manager enterprise sales application"],
+    "expected_titles": ["Branch \u00b7 Job application breakdown", "Job application breakdown"],
+    "expected_content_contains": ["job", "application"],
+    "category": "semantic",
+    "difficulty": "medium",
+    "notes": "Nov 2025 job search activity"
+  },
+  {
+    "id": "r015",
+    "query": "Rust CLI binary file inspector",
+    "query_variants": ["Rust binpeek CLI tool", "binary file analysis Rust"],
+    "expected_titles": ["Rust Project: Binpeek CLI"],
+    "expected_content_contains": ["Rust"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Dec 2025 Rust learning project"
+  },
+  {
+    "id": "r016",
+    "query": "projects work activities",
+    "expected_titles": [],
+    "expected_content_contains": [],
+    "date_from": "2025-06-01",
+    "date_to": "2025-06-30",
+    "category": "temporal",
+    "difficulty": "medium",
+    "notes": "June 2025 temporal query - Shadow Twin System was the big project"
+  },
+  {
+    "id": "r017",
+    "query": "what was being built developed",
+    "expected_titles": [],
+    "expected_content_contains": [],
+    "date_from": "2024-10-01",
+    "date_to": "2024-10-31",
+    "category": "temporal",
+    "difficulty": "medium",
+    "notes": "Oct 2024 - Domain Project Ideas was the massive conversation (1368 chunks)"
+  },
+  {
+    "id": "r018",
+    "query": "quantum entanglement superconductor fusion reactor",
+    "expected_titles": [],
+    "expected_content_contains": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "notes": "Topics that should not exist in the corpus"
+  },
+  {
+    "id": "r019",
+    "query": "Forbes AI companies list top 50",
+    "query_variants": ["Forbes AI 50 overview companies", "top AI companies Forbes list"],
+    "expected_titles": ["Forbes AI 50 Overview"],
+    "expected_content_contains": ["Forbes", "AI"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Dec 2025 research conversation"
+  },
+  {
+    "id": "r020",
+    "query": "n8n workflow automation integration",
+    "query_variants": ["n8n automation tool workflows", "n8n integration setup"],
+    "expected_titles": ["What is n8n"],
+    "expected_content_contains": ["n8n"],
+    "category": "factual",
+    "difficulty": "easy",
+    "notes": "Jan 2026 exploration of n8n"
+  }
+]
