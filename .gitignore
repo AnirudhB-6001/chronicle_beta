@@ -53,3 +53,5 @@ eval/reports/
 # Environment
 .env
 .env.local
+eval/golden_questions_real.json
+eval/run_real_eval.py

@@ -1,12 +1,12 @@
 # Chronicle Beta
 
-A local-first personal RAG memory system that turns your AI conversation history into a searchable, retrievable knowledge base — designed to work with any LLM via MCP (Model Context Protocol).
+A local-first personal RAG memory system that turns your AI conversation history into a searchable, retrievable knowledge base. Designed to work with any LLM via MCP (Model Context Protocol).
 
 ## What It Does
 
-Chronicle Beta ingests your exported AI conversations, chunks and embeds them into a local vector store, and exposes a retrieval interface via MCP. When connected to an LLM like Claude, the LLM can semantically search your entire conversation history — finding relevant context, past decisions, code snippets, and ideas on demand.
+Chronicle Beta ingests your exported AI conversations, chunks and embeds them into a local vector store, and exposes a retrieval interface via MCP. When connected to an LLM like Claude, the LLM can semantically search your entire conversation history. It finds relevant context, past decisions, code snippets, and ideas on demand.
 
-The LLM handles query decomposition and answer synthesis. Chronicle handles storage and retrieval. Clean separation of concerns.
+The LLM handles query decomposition and answer synthesis. Chronicle handles storage and retrieval. 
 
 ## Architecture
 
@@ -17,8 +17,8 @@ Your LLM (via MCP) → Chronicle MCP Server → Retriever → ChromaDB
 ```
 
 **Two MCP tools:**
-- `retrieve_chunks` — semantic search with optional metadata filters and date ranges
-- `health_check` — connectivity and status probe
+- `retrieve_chunks` - semantic search with optional metadata filters and date ranges
+- `health_check` - connectivity and status probe
 
 **Stack:**
 - ChromaDB (persistent local vector store)
@@ -82,10 +82,10 @@ python -m scripts.embed_and_index \
 
 ### Retrieval filters
 The `retrieve_chunks` tool supports:
-- `retrieval_query` — string or list of strings for multi-query retrieval
-- `k` — number of results (default: 8)
-- `date_from` / `date_to` — ISO date strings for time-window filtering
-- `filters` — metadata filters: `type`, `project`, `source`, `title`, `author`, `path`
+- `retrieval_query` - string or list of strings for multi-query retrieval
+- `k` - number of results (default: 8)
+- `date_from` / `date_to` - ISO date strings for time-window filtering
+- `filters` - metadata filters: `type`, `project`, `source`, `title`, `author`, `path`
 
 ## Eval
 

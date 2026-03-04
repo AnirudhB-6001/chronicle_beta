@@ -1,4 +1,4 @@
-# Chronicle Beta — Direct Dependencies
+# Chronicle Beta: Direct Dependencies
 # Install with: pip install -r requirements.txt
 
 # Core
