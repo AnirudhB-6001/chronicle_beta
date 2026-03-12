@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "chronicle-beta"
@@ -25,9 +25,10 @@ classifiers = [
 ]
 
 dependencies = [
-    "chromadb>=0.4.0,<1.0",
-    "sentence-transformers>=2.2.0,<4.0",
-    "diskcache>=5.6.0,<6.0",
+    "chromadb==1.5.5",
+    "sentence-transformers==5.2.3",
+    "diskcache==5.6.3",
+    "tqdm==4.67.3",
 ]
 
 [project.optional-dependencies]
@@ -45,9 +46,6 @@ eval = [
 Homepage = "https://github.com/AnirudhB-6001/chronicle_beta"
 Repository = "https://github.com/AnirudhB-6001/chronicle_beta"
 Issues = "https://github.com/AnirudhB-6001/chronicle_beta/issues"
-
-[project.scripts]
-chronicle-ingest = "scripts.ingest:main"
 
 [tool.setuptools.packages.find]
 include = ["mcp_server*", "retriever*", "scripts*"]

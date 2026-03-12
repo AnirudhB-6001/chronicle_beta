@@ -1,8 +1,7 @@
-# Chronicle Beta: Direct Dependencies
+# Chronicle Beta: Pinned Dependencies
 # Install with: pip install -r requirements.txt
 
-# Core
-chromadb>=0.4.0,<1.1
-sentence-transformers>=2.2.0,<6.0
-diskcache>=5.6.0,<6.0
-tqdm>=4.60.0
+chromadb==1.5.5
+sentence-transformers==5.2.3
+diskcache==5.6.3
+tqdm==4.67.3

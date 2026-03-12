@@ -27,45 +27,78 @@ Your LLM (via MCP) → Chronicle MCP Server → Retriever → ChromaDB
 
 ## Quick Start
 
-### 1. Install
+### 1. Clone the repository
 ```bash
 git clone https://github.com/AnirudhB-6001/chronicle_beta.git
 cd chronicle_beta
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -e .
 ```
 
-### 2. Ingest your data
-Export your ChatGPT conversations (Settings → Data Controls → Export Data).
-Place the `conversations.json` in `data/`.
+### 2. Export your ChatGPT data
 
+Go to ChatGPT → **Settings → Data Controls → Export Data**. You'll receive an email with a download link. Unzip the archive and place `conversations.json` in the `data/` folder inside the cloned repository.
+```
+chronicle_beta/
+└── data/
+    └── conversations.json   ← place it here
+```
+
+### 3. Run the install script (WSL / Linux / macOS)
 ```bash
-# Parse conversations into chunks
-python -m scripts.parser --input data/conversations.json --output data/chunks.json
-
-# Embed and index into ChromaDB
-python -m scripts.embed_and_index --input data/chunks.json --db-path data/vector_store
+bash scripts/install.sh
 ```
 
-### 3. Connect via MCP
-Add to your Claude Desktop config (`claude_desktop_config.json`):
+The script runs the full pipeline in one pass: verifies Python 3.10+, creates a virtual environment, installs dependencies (~2GB first run), parses your conversations, embeds them into a local vector store, and prints the MCP config for Claude Desktop. Indexing ~30k chunks takes approximately 45 minutes — the embedding model runs entirely on your machine.
 
-```json
-{
-  "mcpServers": {
-    "chronicle": {
-      "command": "python",
-      "args": ["-m", "mcp_server.server"],
-      "cwd": "/path/to/chronicle_beta",
-      "env": {
-        "CHRONICLE_NONINTERACTIVE": "1",
-        "TOKENIZERS_PARALLELISM": "false"
-      }
-    }
-  }
-}
-```
+The script is idempotent. It detects completed steps and skips them on re-run.
+
+### 4. Connect to Claude Desktop
+
+The install script prints the exact MCP config block with your paths filled in. Copy it into your `claude_desktop_config.json`:
+
+| Platform | Config file location |
+| --- | --- |
+| macOS | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| Linux | `~/.config/Claude/claude_desktop_config.json` |
+| Windows | `%APPDATA%\Claude\claude_desktop_config.json` |
+| Windows Store | `AppData\Local\Packages\Claude_*\LocalCache\Roaming\Claude\` |
+
+Restart Claude Desktop, then ask Claude:
+
+> "Use chronicle health_check"
+
+If it responds with status `ok` and sample titles from your conversations, you're done.
+
+### What the install script does
+
+The script is safe to re-run at any point. It detects what's already done and skips it:
+
+| State | What happens |
+| --- | --- |
+| No venv | Creates virtual environment and installs dependencies |
+| venv exists, deps installed | Skips install (seconds) |
+| No `conversations.json` | Pauses, tells you where to put the file |
+| `conversations.json` present, no `chunks.json` | Runs parser automatically |
+| `chunks.json` exists, no vector store | Runs embedding and indexing |
+| Vector store exists | Skips ingestion, prints MCP config |
+
+To rebuild from scratch: `rm -rf venv data/chunks.json data/vector_store` and re-run.
+
+## Troubleshooting
+
+**Install script fails on "Dependency installation failed"**
+If you're on WSL and see `[Errno 5] Input/output error`, this is a known WSL + NTFS issue. Try running the script again — pip may succeed on retry. If deps are already installed from a previous attempt, the script will detect them and skip the install.
+
+**PyTorch download is very slow or fails**
+sentence-transformers pulls PyTorch (~2GB). On slow connections, this can take 10-20 minutes. If it times out, re-run the script — pip caches partial downloads.
+
+**Indexing takes a long time**
+First-run indexing of 30k+ chunks takes ~45 minutes. This is normal — the embedding model runs locally on CPU. Subsequent runs skip indexing if the vector store already exists.
+
+**Claude Desktop doesn't show Chronicle tools**
+Check that `claude_desktop_config.json` has the correct paths. The `command` field must point to the Python binary inside your venv (not the system Python). The `cwd` must be the chronicle_beta project root. After editing the config, fully quit Claude Desktop (not just close the window) and reopen it.
+
+**health_check returns "degraded" or no results**
+The vector store may not be built yet. Run `bash scripts/install.sh` to verify — it will tell you if any step was skipped.
 
 ## Configuration
 
@@ -109,6 +142,7 @@ chronicle_beta/
 ├── retriever/
 │   └── core.py                # Callable retriever: search(q, k, filters, dates)
 ├── scripts/
+│   ├── install.sh             # One-command setup (install + ingest)
 │   ├── parser.py              # ChatGPT export → chunks.json
 │   └── embed_and_index.py     # Chunks → ChromaDB (stable IDs, rich metadata)
 ├── tests/                     # Unit + integration tests
