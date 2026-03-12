@@ -254,35 +254,82 @@ fi
 # PHASE 3: Connect to Claude Desktop
 # ══════════════════════════════════════════════════════════════
 
+# Detect OS and generate the correct MCP config.
+#
+# Why a bash wrapper instead of "cwd"?
+# Claude Desktop may strip the "cwd" field from the config on some
+# platforms. The bash wrapper embeds the cd into the command itself,
+# so the working directory is always correct regardless of how Claude
+# Desktop handles the config.
+
+IS_WSL=false
+IS_MACOS=false
+IS_LINUX=false
+
+if [ -f /proc/version ] && grep -qi microsoft /proc/version 2>/dev/null; then
+    IS_WSL=true
+elif [ "$(uname -s)" = "Darwin" ]; then
+    IS_MACOS=true
+else
+    IS_LINUX=true
+fi
+
 printf "\n"
 printf "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 printf "${GREEN}${BOLD}  Chronicle Beta is ready!${RESET}\n"
 printf "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
 printf "\n"
 printf "  ${BOLD}Last step — connect to Claude Desktop:${RESET}\n"
-printf "  Add this to your ${BOLD}claude_desktop_config.json${RESET}:\n"
+printf "  Add the ${BOLD}mcpServers${RESET} block below to your ${BOLD}claude_desktop_config.json${RESET}.\n"
+printf "  ${DIM}(Merge it into the existing file — don't create a second JSON object.)${RESET}\n"
 printf "\n"
-printf '     {\n'
-printf '       "mcpServers": {\n'
-printf '         "chronicle": {\n'
-printf '           "command": "%s",\n' "$VENV_DIR/bin/python"
-printf '           "args": ["-m", "mcp_server.server"],\n'
-printf '           "cwd": "%s",\n' "$PROJ_ROOT"
-printf '           "env": {\n'
-printf '             "CHRONICLE_NONINTERACTIVE": "1",\n'
-printf '             "TOKENIZERS_PARALLELISM": "false"\n'
-printf '           }\n'
-printf '         }\n'
-printf '       }\n'
-printf '     }\n'
+
+if [ "$IS_WSL" = true ]; then
+    printf '     "mcpServers": {\n'
+    printf '       "chronicle": {\n'
+    printf '         "command": "wsl.exe",\n'
+    printf '         "args": [\n'
+    printf '           "bash", "-lc",\n'
+    printf '           "cd %s && %s -m mcp_server.server"\n' "$PROJ_ROOT" "$VENV_DIR/bin/python"
+    printf '         ],\n'
+    printf '         "env": {\n'
+    printf '           "CHRONICLE_NONINTERACTIVE": "1",\n'
+    printf '           "TOKENIZERS_PARALLELISM": "false"\n'
+    printf '         }\n'
+    printf '       }\n'
+    printf '     }\n'
+elif [ "$IS_MACOS" = true ] || [ "$IS_LINUX" = true ]; then
+    printf '     "mcpServers": {\n'
+    printf '       "chronicle": {\n'
+    printf '         "command": "/bin/bash",\n'
+    printf '         "args": ["-c", "cd %s && %s -m mcp_server.server"],\n' "$PROJ_ROOT" "$VENV_DIR/bin/python"
+    printf '         "env": {\n'
+    printf '           "CHRONICLE_NONINTERACTIVE": "1",\n'
+    printf '           "TOKENIZERS_PARALLELISM": "false"\n'
+    printf '         }\n'
+    printf '       }\n'
+    printf '     }\n'
+fi
+
 printf "\n"
 printf "  ${BOLD}Then:${RESET}\n"
-printf "     1. Restart Claude Desktop\n"
-printf "     2. Ask Claude: ${DIM}\"Use chronicle health_check\"${RESET}\n"
+printf "     1. Fully quit Claude Desktop (not just close the window)\n"
+printf "     2. Reopen Claude Desktop\n"
+printf "     3. Ask Claude: ${DIM}\"Use chronicle health_check\"${RESET}\n"
 printf "\n"
-printf "${DIM}  Config file locations:${RESET}\n"
-printf "${DIM}    macOS:     ~/Library/Application Support/Claude/claude_desktop_config.json${RESET}\n"
-printf "${DIM}    Linux:     ~/.config/Claude/claude_desktop_config.json${RESET}\n"
-printf "${DIM}    Windows:   %%APPDATA%%\\Claude\\claude_desktop_config.json${RESET}\n"
-printf "${DIM}    Win Store: AppData\\Local\\Packages\\Claude_*\\LocalCache\\Roaming\\Claude\\ ${RESET}\n"
+
+if [ "$IS_WSL" = true ]; then
+    printf "${DIM}  Finding your config file (run in PowerShell, not WSL):${RESET}\n"
+    printf "${DIM}    Get-ChildItem \$env:APPDATA, \$env:LOCALAPPDATA -Recurse -Filter \"claude_desktop_config.json\" -ErrorAction SilentlyContinue${RESET}\n"
+elif [ "$IS_MACOS" = true ]; then
+    printf "${DIM}  Config file:${RESET}\n"
+    printf "${DIM}    ~/Library/Application Support/Claude/claude_desktop_config.json${RESET}\n"
+    printf "${DIM}  Open it with: nano ~/Library/Application\\ Support/Claude/claude_desktop_config.json${RESET}\n"
+elif [ "$IS_LINUX" = true ]; then
+    printf "${DIM}  Config file:${RESET}\n"
+    printf "${DIM}    ~/.config/Claude/claude_desktop_config.json${RESET}\n"
+fi
+
+printf "\n"
+printf "${DIM}  Full setup guide: https://github.com/AnirudhB-6001/chronicle_beta/blob/main/docs/QUICKSTART.md${RESET}\n"
 printf "\n"
