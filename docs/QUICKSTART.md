@@ -179,7 +179,7 @@ It should become:
 
 Save the file (Ctrl + O, then Enter, then Ctrl + X to exit nano).
 
-**Fully quit** Claude Desktop: press **⌘ + Q** (clicking the red close button only hides the window — it doesn't restart the app). Reopen Claude Desktop.
+**Fully quit** Claude Desktop: press **⌘ + Q** (clicking the red close button only hides the window, it doesn't restart the app). Reopen Claude Desktop.
 
 ### Step 9 Verify
 
@@ -195,7 +195,7 @@ If it responds with `status: ok` and sample titles from your conversations, you'
 
 Chronicle Beta runs inside WSL (Windows Subsystem for Linux) on Windows. The install script and all Python commands run in WSL, while Claude Desktop runs as a normal Windows app and talks to the WSL-based server.
 
-### Step 1 — Install WSL
+### Step 1 Install WSL
 
 Open PowerShell as Administrator (right-click the Start button -> Terminal (Admin)) and run:
 
@@ -344,7 +344,7 @@ Add the `mcpServers` block printed by the install script, merged into the existi
 
 ## Troubleshooting
 
-If you hit any issues during setup, see the full [Troubleshooting Guide](TROUBLESHOOTING.md) — it covers installation failures, ingestion problems, MCP connection issues, and platform-specific notes for macOS, WSL, and Linux.
+If you hit any issues during setup, see the full [Troubleshooting Guide](TROUBLESHOOTING.md) - it covers installation failures, ingestion problems, MCP connection issues, and platform-specific notes for macOS, WSL, and Linux.
 
 ---
 

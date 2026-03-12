@@ -27,7 +27,7 @@ Your LLM (via MCP) -> Chronicle MCP Server -> Retriever -> ChromaDB
 
 ## Quick Start
 
-**[Full setup guide ->](docs/QUICKSTART.md)** - step-by-step instructions for macOS, Windows (WSL), and Linux, including how to install prerequisites.
+**[Full setup guide ->](docs/QUICKSTART.md)** step-by-step instructions for macOS, Windows (WSL), and Linux, including how to install prerequisites.
 
 The short version:
 
@@ -42,7 +42,7 @@ Export your ChatGPT data (Settings -> Data Controls -> Export Data), unzip the a
 ```
 chronicle_beta/
 └── data/
-    └── conversations.json   <- place it here
+    └── conversations.json   ← place it here
 ```
 
 Then run the install script:
@@ -51,7 +51,7 @@ Then run the install script:
 bash scripts/install.sh
 ```
 
-The script handles everything: verifies Python 3.10+, creates a virtual environment, installs dependencies (~2 GB first run), parses your conversations, embeds them into a local vector store, and prints the MCP config for Claude Desktop. It is idempotent - safe to re-run at any point, skipping completed steps.
+The script handles everything: verifies Python 3.10+, creates a virtual environment, installs dependencies (~2 GB first run), parses your conversations, embeds them into a local vector store, and prints the MCP config for Claude Desktop. It is idempotent, safe to re-run at any point, skipping completed steps.
 
 Follow the printed instructions to connect to Claude Desktop, then ask Claude:
 
@@ -117,6 +117,8 @@ chronicle_beta/
 │   ├── QUICKSTART.md          # Full setup guide (macOS, Windows, Linux)
 │   ├── TROUBLESHOOTING.md     # Solutions to common issues
 │   └── eval.md                # Evaluation metrics and methodology
+├── .github/ISSUE_TEMPLATE/    # Issue templates (setup, retrieval, feature request)
+├── CONTRIBUTING.md            # Contribution guidelines
 ├── pyproject.toml
 ├── LICENSE                    # Apache 2.0
 ├── SECURITY.md                # Vulnerability reporting
