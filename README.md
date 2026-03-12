@@ -11,9 +11,9 @@ The LLM handles query decomposition and answer synthesis. Chronicle handles stor
 ## Architecture
 
 ```
-Your LLM (via MCP) → Chronicle MCP Server → Retriever → ChromaDB
+Your LLM (via MCP) -> Chronicle MCP Server -> Retriever -> ChromaDB
                                                 ↑
-                              Ingestion: parser → embedder → vector store
+                              Ingestion: parser -> embedder -> vector store
 ```
 
 **Two MCP tools:**
@@ -27,7 +27,7 @@ Your LLM (via MCP) → Chronicle MCP Server → Retriever → ChromaDB
 
 ## Quick Start
 
-**[Full setup guide →](docs/QUICKSTART.md)** — step-by-step instructions for macOS, Windows (WSL), and Linux, including how to install prerequisites.
+**[Full setup guide ->](docs/QUICKSTART.md)** - step-by-step instructions for macOS, Windows (WSL), and Linux, including how to install prerequisites.
 
 The short version:
 
@@ -37,12 +37,12 @@ git clone https://github.com/AnirudhB-6001/chronicle_beta.git
 cd chronicle_beta
 ```
 
-Export your ChatGPT data (Settings → Data Controls → Export Data), unzip the archive, and place `conversations.json` in the `data/` folder:
+Export your ChatGPT data (Settings -> Data Controls -> Export Data), unzip the archive, and place `conversations.json` in the `data/` folder:
 
 ```
 chronicle_beta/
 └── data/
-    └── conversations.json   ← place it here
+    └── conversations.json   <- place it here
 ```
 
 Then run the install script:
@@ -51,7 +51,7 @@ Then run the install script:
 bash scripts/install.sh
 ```
 
-The script handles everything: verifies Python 3.10+, creates a virtual environment, installs dependencies (~2 GB first run), parses your conversations, embeds them into a local vector store, and prints the MCP config for Claude Desktop. It is idempotent — safe to re-run at any point, skipping completed steps.
+The script handles everything: verifies Python 3.10+, creates a virtual environment, installs dependencies (~2 GB first run), parses your conversations, embeds them into a local vector store, and prints the MCP config for Claude Desktop. It is idempotent - safe to re-run at any point, skipping completed steps.
 
 Follow the printed instructions to connect to Claude Desktop, then ask Claude:
 
@@ -63,7 +63,7 @@ If it responds with `status: ok` and sample titles from your conversations, you'
 
 ## Troubleshooting
 
-See the [troubleshooting section](docs/QUICKSTART.md#troubleshooting) in the Quick Start guide for common issues and fixes.
+See the [Troubleshooting Guide](docs/TROUBLESHOOTING.md) for solutions to common installation, ingestion, and MCP connection issues across all platforms.
 
 ## Configuration
 
@@ -108,13 +108,14 @@ chronicle_beta/
 │   └── core.py                # Callable retriever: search(q, k, filters, dates)
 ├── scripts/
 │   ├── install.sh             # One-command setup (install + ingest)
-│   ├── parser.py              # ChatGPT export → chunks.json
-│   └── embed_and_index.py     # Chunks → ChromaDB (stable IDs, rich metadata)
+│   ├── parser.py              # ChatGPT export -> chunks.json
+│   └── embed_and_index.py     # Chunks -> ChromaDB (stable IDs, rich metadata)
 ├── tests/                     # Unit + integration tests
 ├── eval/                      # Evaluation pipeline + golden datasets
 ├── data/                      # User data directory (gitignored)
 ├── docs/                      # Documentation
 │   ├── QUICKSTART.md          # Full setup guide (macOS, Windows, Linux)
+│   ├── TROUBLESHOOTING.md     # Solutions to common issues
 │   └── eval.md                # Evaluation metrics and methodology
 ├── pyproject.toml
 ├── LICENSE                    # Apache 2.0
@@ -138,7 +139,7 @@ See [SECURITY.md](SECURITY.md) for vulnerability reporting instructions.
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE).
+Apache 2.0 - see [LICENSE](LICENSE).
 
 ## Demo Video
 https://youtu.be/CXG5Yvd43Qc?si=NJl_QnhceA_vMigx
