@@ -72,7 +72,7 @@ For anything non-trivial, open an issue first to discuss the approach before wri
 
 ### Commit messages
 
-Use [conventional commits](https://www.conventionalcommits.org/):
+Use:
 
 | Prefix | Use for |
 |--------|---------|

@@ -141,7 +141,17 @@ See [SECURITY.md](SECURITY.md) for vulnerability reporting instructions.
 
 ## License
 
-Apache 2.0 - see [LICENSE](LICENSE).
+## License
 
-## Demo Video
-https://youtu.be/CXG5Yvd43Qc?si=NJl_QnhceA_vMigx
+Chronicle Beta v0.1.x was released under the Apache 2.0 license.
+
+From v0.2.0 onwards, Chronicle Beta is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+
+You are free to use, modify, and distribute this software for personal and open-source use.  
+Any commercial use, hosted deployment, or product built on Chronicle requires explicit written permission from the author.
+
+Copyright (C) 2024-2026 Anirudh Batra
+Contact for commercial licensing: [hello@anirudhbatraofficial.com]
+
+See [LICENSE](./LICENSE) for full terms.
+
